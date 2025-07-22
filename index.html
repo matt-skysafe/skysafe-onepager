@@ -1,30 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SkySafe: From Detection to Action</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Securing Minnesota's Skies: The Urgent Need for Advanced Drone Defense</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #003F5C, #2A5A74);
+        }
+        .stat-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .icon-bg {
+            background-color: #FFC107;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 14px rgba(255, 193, 7, 0.4);
+        }
+        .flow-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #003F5C;
+            color: white;
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+        .flow-arrow {
+            color: #99B2C9;
+        }
+    </style>
 </head>
-<body>
-  <h1>Securing Minnesota’s Skies</h1>
-  <h3>A Data-Driven Plan to Neutralize Aerial Threats</h3>
+<body class="bg-gray-100">
+    <main class="container mx-auto p-4 md:p-8">
 
-  <div class="stats">
-    <div class="card">400%<br />Rise in Drone Incidents Since 2020</div>
-    <div class="card">2,845<br />NFL Stadium Drone Incursions in 2023</div>
-    <div class="card">65%<br />Of Airport Near-Collisions Involve Drones</div>
-  </div>
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#003F5C] uppercase tracking-wider">Securing Minnesota's Skies</h1>
+            <p class="text-lg md:text-xl font-medium text-[#34657F] mt-2">A Data-Driven Plan to Neutralize Aerial Threats</p>
+        </header>
 
-  <h2>The SkySafe Solution: From Detection to Action</h2>
-  <ol>
-    <li><strong>DETECT:</strong> Passively monitor airspace for drone RF signals.</li>
-    <li><strong>IDENTIFY:</strong> Instantly classify drone type, model, and capabilities.</li>
-    <li><strong>TRACK:</strong> View real-time flight path, speed, and altitude.</li>
-    <li><strong>LOCATE PILOT:</strong> Pinpoint the operator’s location for interdiction.</li>
-  </ol>
+        <section class="mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <p class="text-6xl md:text-7xl font-black text-[#003F5C]">400%</p>
+                    <p class="text-lg font-semibold text-[#34657F] mt-2">Rise in Drone Incidents Since 2020</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <p class="text-6xl md:text-7xl font-black text-[#003F5C]">2,845</p>
+                    <p class="text-lg font-semibold text-[#34657F] mt-2">NFL Stadium Drone Incursions in 2023</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <p class="text-6xl md:text-7xl font-black text-[#003F5C]">65%</p>
+                    <p class="text-lg font-semibold text-[#34657F] mt-2">Of Airport Near-Collisions Involve Drones</p>
+                </div>
+            </div>
+        </section>
 
-  <!-- Placeholder for charts and other visuals -->
-  <p><em>[Charts and graphics coming soon]</em></p>
+        <section class="mb-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-[#003F5C]">Minnesota's High-Value Targets are Exposed</h2>
+                <p class="text-md text-[#34657F] max-w-3xl mx-auto">From critical infrastructure to public events, our state's most vital assets are vulnerable to aerial surveillance and attack. The incident at Prairie Island Nuclear Plant was a clear warning.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="icon-bg">
+                        <span class="text-4xl">☢️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#003F5C]">Nuclear Facilities</h3>
+                    <p class="text-gray-600 mt-2">Unauthorized drones were confirmed over Prairie Island, yet operators were <span class="font-bold">never found</span>. This intelligence gap is a critical failure.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="icon-bg">
+                        <span class="text-4xl">🏟️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#003F5C]">Stadiums & Events</h3>
+                    <p class="text-gray-600 mt-2">U.S. Bank Stadium and the State Fair are prime targets for disruption or panic-inducing attacks, mirroring national trends.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="icon-bg">
+                        <span class="text-4xl">✈️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#003F5C]">MSP International Airport</h3>
+                    <p class="text-gray-600 mt-2">A single drone can halt all air traffic, causing millions in economic damage and posing a direct threat to passenger safety.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+             <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-[#003F5C]">The SkySafe Solution: From Detection to Action</h2>
+                <p class="text-md text-[#34657F] max-w-3xl mx-auto">SkySafe provides a passive, non-interfering solution that detects, identifies, and tracks unauthorized drones in real-time, empowering law enforcement to neutralize the threat at its source.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <div class="flex flex-col md:flex-row items-center justify-around space-y-6 md:space-y-0 md:space-x-4">
+                    <div class="text-center">
+                        <div class="flow-icon mx-auto">1</div>
+                        <h4 class="font-bold text-lg mt-3 text-[#003F5C]">DETECT</h4>
+                        <p class="text-sm text-gray-600">Passively monitor airspace for drone RF signals.</p>
+                    </div>
+                    <div class="text-5xl font-light flow-arrow transform rotate-90 md:rotate-0">&rarr;</div>
+                    <div class="text-center">
+                        <div class="flow-icon mx-auto">2</div>
+                        <h4 class="font-bold text-lg mt-3 text-[#003F5C]">IDENTIFY</h4>
+                        <p class="text-sm text-gray-600">Instantly classify drone type, model, and capabilities.</p>
+                    </div>
+                     <div class="text-5xl font-light flow-arrow transform rotate-90 md:rotate-0">&rarr;</div>
+                    <div class="text-center">
+                        <div class="flow-icon mx-auto">3</div>
+                        <h4 class="font-bold text-lg mt-3 text-[#003F5C]">TRACK</h4>
+                        <p class="text-sm text-gray-600">View real-time flight path, speed, and altitude.</p>
+                    </div>
+                     <div class="text-5xl font-light flow-arrow transform rotate-90 md:rotate-0">&rarr;</div>
+                    <div class="text-center">
+                        <div class="flow-icon mx-auto bg-[#FFC107] text-[#003F5C]">4</div>
+                        <h4 class="font-bold text-lg mt-3 text-[#003F5C]">LOCATE PILOT</h4>
+                        <p class="text-sm text-gray-600">Pinpoint the operator's location for immediate interdiction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-center text-[#003F5C] mb-4">Primary Drone Threat Scenarios</h3>
+                    <p class="text-sm text-center text-gray-600 mb-4">Analysis shows threats fall into several key categories, each with serious implications for state security.</p>
+                    <div class="chart-container">
+                        <canvas id="threatTypeChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                     <h3 class="text-xl font-bold text-center text-[#003F5C] mb-4">Projected Drone Market Explosion</h3>
+                    <p class="text-sm text-center text-gray-600 mb-4">The problem is accelerating. The North American drone market is set to more than double, increasing the urgency for a statewide security solution.</p>
+                    <div class="chart-container">
+                        <canvas id="marketGrowthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gradient-bg rounded-xl shadow-2xl p-6 md:p-10">
+            <div class="text-center mb-8">
+                 <h2 class="text-3xl font-bold text-white">A Proactive Defense for Minnesota's Future</h2>
+                 <p class="text-md text-gray-300 max-w-3xl mx-auto mt-2">By adopting SkySafe technology, Minnesota can move from a reactive to a proactive security posture, safeguarding its citizens and enabling a safe drone economy.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="stat-card p-6 rounded-lg text-center">
+                    <h4 class="text-xl font-bold text-white">Protect Infrastructure</h4>
+                    <p class="text-sm text-gray-300 mt-2">Secure power plants, airports, and data centers from surveillance and attack.</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg text-center">
+                    <h4 class="text-xl font-bold text-white">Secure Public Events</h4>
+                    <p class="text-sm text-gray-300 mt-2">Ensure safety at the State Fair, U.S. Bank Stadium, and other large venues.</p>
+                </div>
+                 <div class="stat-card p-6 rounded-lg text-center">
+                    <h4 class="text-xl font-bold text-white">Empower Law Enforcement</h4>
+                    <p class="text-sm text-gray-300 mt-2">Provide actionable intelligence to apprehend illegal operators and build court-ready cases.</p>
+                </div>
+                 <div class="stat-card p-6 rounded-lg text-center">
+                    <h4 class="text-xl font-bold text-white">Enable Drone Economy</h4>
+                    <p class="text-sm text-gray-300 mt-2">Create a secure airspace that fosters innovation and safe commercial drone use.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+<script>
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        }
+        return label;
+    };
+
+    const brilliantBluesPalette = {
+        dark: '#003F5C',
+        mediumDark: '#34657F',
+        medium: '#668BA4',
+        mediumLight: '#99B2C9',
+        light: '#CCE0EE',
+        accent: '#FFC107'
+    };
+
+    const marketGrowthCtx = document.getElementById('marketGrowthChart').getContext('2d');
+    new Chart(marketGrowthCtx, {
+        type: 'bar',
+        data: {
+            labels: ['2024', '2033 (Projected)'],
+            datasets: [{
+                label: 'Market Value (in Billions)',
+                data: [11.2, 26.9],
+                backgroundColor: [brilliantBluesPalette.medium, brilliantBluesPalette.dark],
+                borderColor: [brilliantBluesPalette.mediumDark, brilliantBluesPalette.dark],
+                borderWidth: 1,
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { color: '#333' },
+                    grid: { color: '#e0e0e0' },
+                    title: {
+                        display: true,
+                        text: 'Market Value ($ Billion)',
+                        color: '#333'
+                    }
+                },
+                x: {
+                    ticks: { color: '#333' },
+                    grid: { display: false }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        }
+    });
+
+    const threatTypeCtx = document.getElementById('threatTypeChart').getContext('2d');
+    new Chart(threatTypeCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Infrastructure Disruption', 'Public Event Attack', 'Contraband Smuggling', 'Corporate & State Espionage'],
+            datasets: [{
+                data: [40, 30, 20, 10],
+                backgroundColor: [brilliantBluesPalette.dark, brilliantBluesPalette.mediumDark, brilliantBluesPalette.medium, brilliantBluesPalette.accent],
+                borderColor: '#ffffff',
+                borderWidth: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#333',
+                        padding: 20
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        }
+    });
+</script>
 </body>
 </html>
