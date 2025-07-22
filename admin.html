@@ -5,27 +5,72 @@
   <title>SkySafe Config Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="p-8 bg-gray-50">
-  <h1 class="text-3xl font-bold mb-4">SkySafe Config Editor</h1>
-  <textarea id="configEditor" class="w-full h-96 p-4 border rounded-lg font-mono"></textarea>
-  <div class="mt-4 flex gap-4">
-    <button onclick="commitConfig()" class="bg-blue-600 text-white px-4 py-2 rounded">COMMIT (Download HTML)</button>
-    <button onclick="loadConfig()" class="bg-gray-600 text-white px-4 py-2 rounded">EDIT (Reload Config)</button>
-  </div>
+<body class="p-8 bg-gray-50 font-sans">
+  <h1 class="text-3xl font-bold mb-6">SkySafe Config Admin</h1>
+  <form id="configForm" class="space-y-6">
+    <div>
+      <label class="block font-semibold mb-1">Region</label>
+      <input type="text" id="region" class="w-full p-2 border rounded" placeholder="Region (e.g., Minnesota)" />
+    </div>
+    <div>
+      <label class="block font-semibold mb-1">Headline</label>
+      <input type="text" id="headline" class="w-full p-2 border rounded" placeholder="Headline" />
+    </div>
+    <div>
+      <label class="block font-semibold mb-1">Subheadline</label>
+      <input type="text" id="subheadline" class="w-full p-2 border rounded" placeholder="Subheadline" />
+    </div>
+    <div>
+      <label class="block font-semibold mb-1">Threat Narrative</label>
+      <textarea id="threatNarrative" class="w-full p-2 border rounded" placeholder="Narrative text..."></textarea>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <label class="block font-semibold mb-1">Incident Increase</label>
+        <input type="text" id="incidentIncrease" class="w-full p-2 border rounded" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Stadium Incursions</label>
+        <input type="text" id="stadiumIncursions" class="w-full p-2 border rounded" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Airport Near-Collisions</label>
+        <input type="text" id="airportNearCollisions" class="w-full p-2 border rounded" />
+      </div>
+    </div>
+    <div class="mt-6">
+      <button type="button" onclick="previewConfig()" class="bg-blue-600 text-white px-4 py-2 rounded">View Page</button>
+    </div>
+  </form>
 
   <script>
     async function loadConfig() {
       const response = await fetch('config.json');
       const data = await response.json();
-      document.getElementById('configEditor').value = JSON.stringify(data, null, 2);
+      document.getElementById('region').placeholder = data.region;
+      document.getElementById('headline').placeholder = data.headline;
+      document.getElementById('subheadline').placeholder = data.subheadline;
+      document.getElementById('threatNarrative').placeholder = data.threatNarrative;
+      document.getElementById('incidentIncrease').placeholder = data.stats.incidentIncrease;
+      document.getElementById('stadiumIncursions').placeholder = data.stats.stadiumIncursions;
+      document.getElementById('airportNearCollisions').placeholder = data.stats.airportNearCollisions;
     }
 
-    function commitConfig() {
-      const blob = new Blob([document.getElementById('configEditor').value], { type: "application/json" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "config.json";
-      link.click();
+    function previewConfig() {
+      const config = {
+        region: document.getElementById('region').value || document.getElementById('region').placeholder,
+        headline: document.getElementById('headline').value || document.getElementById('headline').placeholder,
+        subheadline: document.getElementById('subheadline').value || document.getElementById('subheadline').placeholder,
+        threatNarrative: document.getElementById('threatNarrative').value || document.getElementById('threatNarrative').placeholder,
+        stats: {
+          incidentIncrease: document.getElementById('incidentIncrease').value || document.getElementById('incidentIncrease').placeholder,
+          stadiumIncursions: document.getElementById('stadiumIncursions').value || document.getElementById('stadiumIncursions').placeholder,
+          airportNearCollisions: document.getElementById('airportNearCollisions').value || document.getElementById('airportNearCollisions').placeholder
+        }
+      };
+
+      localStorage.setItem('previewConfig', JSON.stringify(config));
+      window.location.href = 'preview.html';
     }
 
     loadConfig();

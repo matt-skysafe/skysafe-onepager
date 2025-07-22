@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkySafe Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-100 font-sans">
+  <div class="mb-6">
+    <h1 id="headline" class="text-4xl font-bold text-[#003F5C]"></h1>
+    <p id="subheadline" class="text-lg text-[#34657F] mt-2"></p>
+  </div>
+  <div class="mb-4">
+    <h2 class="text-2xl font-semibold">Narrative</h2>
+    <p id="narrative" class="text-md text-gray-700 mt-1"></p>
+  </div>
+  <div class="mb-4">
+    <h2 class="text-xl font-semibold text-[#003F5C]">Key Stats</h2>
+    <ul class="list-disc ml-6 mt-2 text-gray-700" id="statsList"></ul>
+  </div>
+  <div class="flex gap-4 mt-8">
+    <button onclick="edit()" class="bg-gray-600 text-white px-4 py-2 rounded">EDIT</button>
+    <button onclick="commit()" class="bg-blue-600 text-white px-4 py-2 rounded">COMMIT</button>
+  </div>
+
+  <script>
+    function edit() {
+      window.location.href = 'admin.html';
+    }
+
+    function commit() {
+      const config = localStorage.getItem('previewConfig');
+      const blob = new Blob([config], { type: "application/json" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "config.json";
+      link.click();
+    }
+
+    const config = JSON.parse(localStorage.getItem('previewConfig'));
+    document.getElementById('headline').textContent = config.headline;
+    document.getElementById('subheadline').textContent = config.subheadline;
+    document.getElementById('narrative').textContent = config.threatNarrative;
+
+    const stats = config.stats;
+    const list = Object.entries(stats).map(([k, v]) => `<li><strong>${k.replace(/([A-Z])/g, ' $1')}:</strong> ${v}</li>`).join('');
+    document.getElementById('statsList').innerHTML = list;
+  </script>
+</body>
+</html>
