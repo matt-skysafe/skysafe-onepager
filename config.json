@@ -1,30 +1,38 @@
 {
-  "region": "Minnesota",
-  "headline": "Securing Minnesota's Skies",
-  "subheadline": "A Data-Driven Plan to Neutralize Aerial Threats",
-  "stats": {
-    "incidentIncrease": "400%",
-    "stadiumIncursions": "2,845",
-    "airportNearCollisions": "65%"
-  },
-  "threatNarrative": "From critical infrastructure to public events, our state's most vital assets are vulnerable to aerial surveillance and attack. The incident at Prairie Island Nuclear Plant was a clear warning.",
-  "targets": [
-    {
-      "icon": "☢️",
-      "title": "Nuclear Facilities",
-      "description": "Unauthorized drones were confirmed over Prairie Island, yet operators were never found. This intelligence gap is a critical failure."
+    "region": "Minnesota",
+    "headline": "Securing Minnesota's Skies",
+    "subheadline": "A Data-Driven Plan to Neutralize Aerial Threats",
+    "stats": {
+        "incidentIncrease": "400%",
+        "stadiumIncursions": "2,845",
+        "airportNearCollisions": "65%"
     },
-    {
-      "icon": "🏟️",
-      "title": "Stadiums & Events",
-      "description": "U.S. Bank Stadium and the State Fair are prime targets for disruption or panic-inducing attacks, mirroring national trends."
-    },
-    {
-      "icon": "✈️",
-      "title": "MSP International Airport",
-      "description": "A single drone can halt all air traffic, causing millions in economic damage and posing a direct threat to passenger safety."
-    }
-  ],
-  "marketGrowth": [11.2, 26.9],
-  "threatTypes": [40, 30, 20, 10]
+    "threatNarrative": "From critical infrastructure to public events, our state's most vital assets are vulnerable to aerial surveillance and attack. The incident at Prairie Island Nuclear Plant was a clear warning.",
+    "targets": [
+        {
+            "icon": "\u2622\ufe0f",
+            "title": "Nuclear Facilities",
+            "description": "Unauthorized drones were confirmed over Prairie Island, yet operators were never found. This intelligence gap is a critical failure."
+        },
+        {
+            "icon": "\ud83c\udfdf\ufe0f",
+            "title": "Stadiums & Events",
+            "description": "U.S. Bank Stadium and the State Fair are prime targets for disruption or panic-inducing attacks, mirroring national trends."
+        },
+        {
+            "icon": "\u2708\ufe0f",
+            "title": "MSP International Airport",
+            "description": "A single drone can halt all air traffic, causing millions in economic damage and posing a direct threat to passenger safety."
+        }
+    ],
+    "marketGrowth": [
+        11.2,
+        26.9
+    ],
+    "threatTypes": [
+        40,
+        30,
+        20,
+        10
+    ]
 }
