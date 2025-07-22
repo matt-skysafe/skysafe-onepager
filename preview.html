@@ -29,11 +29,40 @@
     }
 
     function commit() {
-      const config = localStorage.getItem('previewConfig');
-      const blob = new Blob([config], { type: "application/json" });
+      const config = JSON.parse(localStorage.getItem('previewConfig'));
+      const regionSlug = config.region.toLowerCase().replace(/\s+/g, '-');
+      const content = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>${config.headline}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-100 font-sans">
+  <div class="mb-6">
+    <h1 class="text-4xl font-bold text-[#003F5C]">${config.headline}</h1>
+    <p class="text-lg text-[#34657F] mt-2">${config.subheadline}</p>
+  </div>
+  <div class="mb-4">
+    <h2 class="text-2xl font-semibold">Narrative</h2>
+    <p class="text-md text-gray-700 mt-1">${config.threatNarrative}</p>
+  </div>
+  <div class="mb-4">
+    <h2 class="text-xl font-semibold text-[#003F5C]">Key Stats</h2>
+    <ul class="list-disc ml-6 mt-2 text-gray-700">
+      <li><strong>Incident Increase:</strong> ${config.stats.incidentIncrease}</li>
+      <li><strong>Stadium Incursions:</strong> ${config.stats.stadiumIncursions}</li>
+      <li><strong>Airport Near-Collisions:</strong> ${config.stats.airportNearCollisions}</li>
+    </ul>
+  </div>
+</body>
+</html>`;
+
+      const blob = new Blob([content], { type: "text/html" });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = "config.json";
+      link.download = `${regionSlug}.html`;
       link.click();
     }
 
